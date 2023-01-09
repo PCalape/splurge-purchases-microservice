@@ -1,25 +1,25 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/mongoose';
-import { SwanService as SwanService } from './swan.service';
-import { Swan } from '@schemas/swan.schema';
+import { PurchaseService } from './purchase.service';
+import { Purchase } from '@schemas/purchase.schema';
 
 const mockModel = {};
 
-describe('SwanService', () => {
-  let service: SwanService;
+describe('PurchaseService', () => {
+  let service: PurchaseService;
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        SwanService,
+        PurchaseService,
         {
-          provide: getModelToken(Swan.name),
+          provide: getModelToken(Purchase.name),
           useValue: mockModel,
         },
       ],
     }).compile();
 
-    service = module.get<SwanService>(SwanService);
+    service = module.get<PurchaseService>(PurchaseService);
   });
 
   afterEach(async () => {

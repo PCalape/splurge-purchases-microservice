@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { TOKEN } from '../environment';
 
 @Injectable()
-export class SwanGuard implements CanActivate {
+export class PurchaseGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
     return validateRequest(request);
