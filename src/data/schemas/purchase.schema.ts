@@ -1,13 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
-import { UUID } from 'bson';
 mongoose.set('debug', process.env.DB_LOGGING_FLAG === 'enabled');
 
 @Schema({ timestamps: true })
 export class Purchase {
-  @Prop({ default: new UUID() })
-  id?: string;
-
   @Prop({ default: new Date() })
   createdAt?: Date;
 
